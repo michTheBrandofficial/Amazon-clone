@@ -1,0 +1,42 @@
+{
+  "name": "amazon-clone",
+  "version": "1.0.0",
+  "description": "Amazon clone built with NixixJS, Stripe, Firebase and Webhooks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "start": "vite",
+    "preview": "vite preview",
+    "css": "sass --watch scss:styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michTheBrandofficial/Amazon-clone.git"
+  },
+  "keywords": [
+    "js",
+    "Amazon-clone",
+    "firebase"
+  ],
+  "author": "Ikechukwu Charles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michTheBrandofficial/Amazon-clone/issues"
+  },
+  "homepage": "https://github.com/michTheBrandofficial/Amazon-clone#readme",
+  "dependencies": {
+    "firebase": "^9.20.0",
+    "nixix": "^1.4.7",
+    "nixix-types": "^1.2.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "embla-carousel": "^7.1.0",
+    "embla-carousel-autoplay": "^7.1.0",
+    "postcss": "^8.4.22",
+    "sass": "^1.62.0",
+    "siema": "^1.5.1",
+    "tailwindcss": "^3.3.1"
+  }
+}

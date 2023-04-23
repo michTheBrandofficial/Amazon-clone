@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "nixix": [
+        "./node_modules/nixix-types"
+      ],
+      "nixix/router": [
+        "./node_modules/nixix-types/router"
+      ],
+      "@pages": [
+        "./pages/index"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@components": [
+        "./components/index"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "jsx": "react-jsxdev",
+    "jsxImportSource": "nixix-types",
+    "typeRoots": [
+      "nixix",
+      "nixix/router",
+      "nixix-types",
+      "node"
+    ],
+    "module": "es2022",
+    "target": "es2022",
+    "types": [
+      "nixix-types"
+    ],
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
+  }
+}

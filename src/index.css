@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'EmberBd';
+  src: url(../assets/fonts/AmazonEmber_Bd.ttf);
+}
+
+@font-face {
+  font-family: 'Ember';
+  src: url(../assets/fonts/AmazonEmber_Rg.ttf);
+}
+
+@font-face {
+  font-family: 'EmberLt';
+  src: url(../assets/fonts/AmazonEmber_Lt.ttf);
+}
