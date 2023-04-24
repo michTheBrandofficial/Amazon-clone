@@ -26,9 +26,11 @@
   },
   "homepage": "https://github.com/michTheBrandofficial/Amazon-clone#readme",
   "dependencies": {
+    "@rollup/pluginutils": "^5.0.2",
     "firebase": "^9.20.0",
-    "nixix": "^1.4.7",
-    "nixix-types": "^1.2.4"
+    "nixix": "^1.4.8",
+    "nixix-types": "^1.2.4",
+    "patch": "^0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

@@ -147,16 +147,19 @@ export function hotUpdate(newValue: Hot, oldVAlue: Hot) {
   
 }
 
-export function makeRoot(element) {
-  const root = window.$$__routeProvider.cloneNode(true);
-  // @ts-ignore
-  root.innerHTML = '';
+let count = 1;
+
+export function makeRoot(element, root = window['$$__routeProvider']) {
+  if (count === 1) {
+    root.innerHTML = '';
+    ++count;
+  }
   if (!Array.isArray(element)) {
     // @ts-ignore
     root.append(element);
   } else {
     element.forEach(el => {
-      makeRoot(el)
+      makeRoot(el, root)
     })
   }
   return root;

@@ -1,6 +1,7 @@
 
 import { defineConfig } from "vite";
 import viteJsconfigPaths from 'vite-jsconfig-paths';
+import nixixPlugin  from "./hmr/nixix-plugin.js";
 // @ts-ignore
 import path from 'path'
 function resolve(string) {
@@ -15,7 +16,6 @@ export default defineConfig({
       "@components": resolve('./components/index.tsx'),
       "@assets": resolve('./assets'),
       "@utils": resolve('./utils'),
-      "@pages": resolve('./pages/index.tsx')
     }
   },
   esbuild: {

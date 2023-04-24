@@ -34,6 +34,11 @@ module.exports = {
         '1': '1px'
       }   
     },
+    keyframes: {
+      shimmer: {
+        '100%': { left: '100%' }
+      }
+    }
   },
   plugins: [],
 };

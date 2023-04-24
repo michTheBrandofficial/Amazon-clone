@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .link {
+    @apply overflow-hidden relative before:absolute before:w-1/4 before:h-full before:left-0 before:bg-gradient-to-tr before:from-gray-200  before:animate-[shimmer_1.5s_linear_infinite];
+  }
+}
+
 @font-face {
   font-family: 'EmberBd';
   src: url(../assets/fonts/AmazonEmber_Bd.ttf);

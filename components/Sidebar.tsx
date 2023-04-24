@@ -13,7 +13,7 @@ export default function Sidebar({userLogged}) {
     // add hidden class to this comp
     <section
       bind:ref={refs.sidebar}
-      className="w-full min-h-full flex backdrop-opacity-10 backdrop-invert bg-black/80 transition duration-700 ease-in-out absolute z-100 sm:hidden hidden"
+      className="w-full min-h-full flex backdrop-opacity-10 backdrop-invert bg-black/80 transition duration-700 ease-in-out absolute z-50 sm:hidden hidden"
     >
       <section className="w-10/12 min-h-full bg-white font-EmberBdLt cursor-pointer">
         <section className="w-full h-36 p-5 flex flex-col justify-between text-white bg-amazon_blue-light">
