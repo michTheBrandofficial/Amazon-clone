@@ -1,11 +1,10 @@
-import { callSignal } from "nixix";
 import './Loader.css';
 
 export default function Loader() {
-  const [loading] = callSignal(4);
+  const loading = 6;
   return (
     <section className="w-full px-3 flex flex-wrap justify-around mb-10">
-      {Array(loading.value).fill('').map((_) => {
+      {Array(loading).fill('').map((_) => {
         return (
           <div className="relative flex flex-col m-5 bg-white p-10">
             <p className="absolute top-2 right-2 load rounded-md py-2 w-12" ></p>

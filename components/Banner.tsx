@@ -1,22 +1,25 @@
 import { Books, PrimeVideo, Promo } from '@assets/images';
-import { Img } from 'nixix';
+import { Img, callRef, effect } from 'nixix';
 import Embla from 'embla-carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import refs from '@utils/refs';
 
-async function Slider() {
-  await Promise.resolve();
-  let emblaApi = Embla(refs.slider.current, { loop: true }, [
-    Autoplay({ delay: 3000 }),
-  ]);
-  console.log(emblaApi.slideNodes());
+export function Slider({ children, autoPlay }: {autoPlay?: number } & JSX.IntrinsicAttributes) {
+  const ref = callRef<HTMLElement>();
+  effect(() => {
+    Embla(ref.current, { loop: true }, (typeof autoPlay === 'number') ? [Autoplay({delay: autoPlay})] : undefined);
+  }, 'once');
+  return (
+    <section style={{ overflow: 'hidden' }} bind:ref={ref}>
+      {children}
+    </section>
+  );
 }
 
 export default function Banner() {
   return (
-    <section className='relative' >
-      <div className='absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20' />  
-      <section className="overflow-hidden" bind:ref={refs.slider}>
+    <section className="relative">
+      <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-10" />
+      <Slider autoPlay={3000} >
         <ul className="flex">
           {[Promo, PrimeVideo, Books].map((banner) => {
             return (
@@ -26,7 +29,7 @@ export default function Banner() {
             );
           })}
         </ul>
-      </section>
+      </Slider>
     </section>
   );
 }

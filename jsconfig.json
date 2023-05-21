@@ -32,11 +32,9 @@
     ],
     "module": "es2022",
     "target": "es2022",
-    "types": [
-      "nixix-types"
-    ],
     "checkJs": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
-  }
+  },
+  "include": ["./**/*"]
 }

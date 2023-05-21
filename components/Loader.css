@@ -5,10 +5,14 @@
   animation: load 2s infinite .5s;
 }
 
-@keyframes load {
-  100% {
-    background-position: -100% 0 ;
-  }
+.notification {
+  transition: 1s ease-in-out .5s;
+  -webkit-transition: 1s ease-in-out .5s;
+}
+
+.notification.off {
+  opacity: 0;
+  display: none;
 }
 
 

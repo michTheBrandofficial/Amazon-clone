@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Banner from "./Banner";
 import ProductFeed from "./ProductFeed";
 import Loader from "./Loader";
+import CheckoutProduct from "./CheckoutProduct";
 
 
 export {
@@ -10,5 +11,6 @@ export {
   Sidebar,
   Banner,
   ProductFeed,
-  Loader
+  Loader,
+  CheckoutProduct
 }

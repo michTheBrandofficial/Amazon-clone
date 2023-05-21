@@ -6,7 +6,21 @@
   .link {
     @apply overflow-hidden relative before:absolute before:w-1/4 before:h-full before:left-0 before:bg-gradient-to-tr before:from-gray-200  before:animate-[shimmer_1.5s_linear_infinite];
   }
+
+  .button {
+    @apply p-2 text-xs font-Ember md:text-sm bg-gradient-to-b from-yellow-200 to-yellow-400 rounded-sm outline-0 focus:ring-2 focus:bg-yellow-500 active:from-yellow-500
+  }
+
+  .gray-button {
+    @apply bg-gradient-to-b from-gray-300 to-gray-400 text-white w-full p-2
+  }
+
+  .checkout-button {
+    @apply bg-gradient-to-b from-yellow-200 to-yellow-400 rounded-sm outline-0 focus:ring-2 focus:bg-yellow-500 active:from-yellow-500 text-black w-full p-2
+  }
 }
+
+
 
 @font-face {
   font-family: 'EmberBd';

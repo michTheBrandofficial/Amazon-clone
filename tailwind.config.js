@@ -18,6 +18,9 @@ module.exports = {
           DEFAULT: '#febd69'
         }, 
       },
+      minHeight: {
+        'screen-main': 'calc(100vh - 220px)'
+      },
       fontFamily: {
         'Ember': ['Ember', 'sans-serif'],
         'EmberBd': ['EmberBd', 'sans-serif'],
@@ -27,8 +30,10 @@ module.exports = {
         sm: '375px', 
         md: '768px',
         lg: '1024px',
-        xl: '1280px',
-        '2xl': { 'min': '378px', 'max': '460px' }
+        xl: '1360px',
+        '2xl': { 'min': '375px', 'max': '460px' },
+        'ord': '620px',
+        'xsm': '335px'
       }, 
       borderWidth: {
         '1': '1px'
@@ -40,6 +45,6 @@ module.exports = {
       }
     }
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
 
