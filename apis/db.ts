@@ -79,4 +79,5 @@ export async function fulfillOrders() {
   const lastDoc = doc(db, `${parent}/orders/${config.tx_ref}`);
   await setDoc(lastDoc, getOrdersObj(checkouts))
   getOrders()
+  setCheckoutsDb();
 }
