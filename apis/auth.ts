@@ -1,7 +1,7 @@
 import Nixix from "nixix";
 import { app } from "./init";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
-import { config, setUserName } from "@utils/stores";
+import { config, setCheckouts, setUserName } from "@utils/stores";
 import refs from "@utils/refs";
 import { getCheckouts, getOrders } from "./db";
 
@@ -47,6 +47,11 @@ onAuthStateChanged(auth, (user) => {
     refs.orders.current?.replaceChildren(
       Nixix.create('h1', null, 'Please, sign in to see your orders')
     );   
+    setCheckouts({
+      checkoutProducts: [],
+      totalPrice: 0,
+      numberOfProds: 0
+    })
     refs.checkout.current?.replaceChildren(
       Nixix.create('h1', { className: 'text-lg border-0 pb-4 lg:text-xl' }, 'Please, sign in to see your cart')
     );   

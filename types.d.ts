@@ -62,5 +62,4 @@ declare global {
 
   interface FlutterwaveConfig extends FlutterWaveTypes.FlutterwaveConfig, FlutterWaveTypes.InitializeFlutterwavePayment {}
 
-
 } 

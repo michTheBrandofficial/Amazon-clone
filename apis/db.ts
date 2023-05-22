@@ -28,6 +28,8 @@ export async function getCheckouts() {
       totalPrice: +totalPrice.toFixed(2),
     };
   });
+
+  config.amount = checkouts.$$__value.totalPrice;
 }
 
 export async function setCheckoutsDb() {

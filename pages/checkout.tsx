@@ -2,8 +2,7 @@
 import { Primeday } from '@assets/images';
 import refs from '@utils/refs';
 import { checkouts, config } from '@utils/stores';
-import { callFlutterwave } from '@utils/flutterwave';
-import { fulfillOrders } from 'apis/db';
+import { callFlutterwave } from 'flutterwave-nixix-v3';
 import random from 'random-string-generator';
 
 export default function Checkout() {
