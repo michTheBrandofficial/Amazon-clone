@@ -1,4 +1,4 @@
-import { callRef } from "nixix";
+import { type MutableRefObject, callRef } from "nixix/primitives";
 
 export default {
   sidebar: callRef<HTMLElement>(),
@@ -6,8 +6,8 @@ export default {
   navbar: callRef<HTMLElement>(),
   password: callRef<HTMLInputElement>(),
   emailAndPassword : callRef<HTMLFormElement>(),
-  checkout: callRef<HTMLDivElement>() as Nixix.MutableRefObject<HTMLDivElement>,
-  checkoutButton: callRef<HTMLButtonElement>() as Nixix.MutableRefObject<HTMLButtonElement>,
+  checkout: callRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>,
+  checkoutButton: callRef<HTMLButtonElement>() as MutableRefObject<HTMLButtonElement>,
   notification: callRef<HTMLElement>(),
   orders: callRef<HTMLElement>()
 }

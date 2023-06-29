@@ -3,21 +3,28 @@ import Home from 'pages/home';
 import Checkout from 'pages/checkout';
 import Success from 'pages/success';
 import Orders from 'pages/orders';
-import { Sidebar, Header } from '@components';
+import { Header } from 'components';
 import init from 'apis/init';
 import patch from 'patch';
-import { makeRoot } from '@utils/functions';
+import { makeRoot } from 'utils/functions';
+import { Suspense, asyncComponent } from 'nixix/hoc';
 
 init();
 
 function App() {
+  const Sidebar = asyncComponent(async () => {
+    const module = await import('../components');
+    return module.Sidebar();
+  });
   return (
     <>
-      <Sidebar />
+      <Suspense fallback={''}>
+        <Sidebar />
+      </Suspense>
       <Header />
       <Routes>
         <Route element={<Home />} common />
-        <Route element={<Checkout />} path="/checkout"  />
+        <Route element={<Checkout />} path="/checkout" />
         <Route element={<Success />} path="/success" />
         <Route element={<Orders />} path="/orders" />
       </Routes>

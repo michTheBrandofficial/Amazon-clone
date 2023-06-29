@@ -1,10 +1,11 @@
-import { X, UserIcon, HomeIcon } from '@assets/icons';
-import refs from '@utils/refs';
-import { username } from '@utils/stores';
+import { X, UserIcon, HomeIcon } from 'assets/icons';
+import refs from 'utils/refs';
+import { username } from 'utils/stores';
 import { signIn } from 'apis/auth';
 import { Link } from 'nixix/router';
 
 export default function Sidebar() {
+  // it cleans up before the component loads.
   return (
     // add hidden class to this comp
     <section

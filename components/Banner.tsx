@@ -1,5 +1,6 @@
-import { Books, PrimeVideo, Promo } from '@assets/images';
-import { Img, callRef, effect } from 'nixix';
+import { Books, PrimeVideo, Promo } from 'assets/images';
+import { callRef, effect } from 'nixix/primitives';
+import { Img } from 'nixix/hoc';
 import Embla from 'embla-carousel';
 import Autoplay from 'embla-carousel-autoplay';
 

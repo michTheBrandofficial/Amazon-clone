@@ -1,5 +1,5 @@
-import { Suspense } from 'nixix';
-import { Banner, Loader, ProductFeed } from '@components';
+import { Suspense } from 'nixix/hoc';
+import { Banner, Loader, ProductFeed } from 'components';
 
 export default function Home() {
   return (

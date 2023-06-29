@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from '@assets/icons';
+import { CheckCircleIcon } from 'assets/icons';
 import { Router } from 'nixix/router';
 
 export default function Success() {

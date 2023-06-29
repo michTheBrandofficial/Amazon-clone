@@ -1,9 +1,10 @@
-import Nixix, { callStore, effect } from 'nixix';
+import Nixix from 'nixix/dom';
+import { callSignal, callStore, effect } from 'nixix/primitives';
 import { Router } from 'nixix/router';
-import { CheckoutProduct } from '@components';
+import { CheckoutProduct } from 'components';
 import Order from 'components/Order';
 import refs from './refs';
-import { Amazon } from '@assets/images';
+import { Amazon } from 'assets/images';
 import { fulfillOrders } from 'apis/db';
 
 const userNameObject: User = {
@@ -23,27 +24,25 @@ const checkout: CheckoutType = {
   numberOfProds: 0,
   totalPrice: 0
 };
- 
+
+export const [checkoutList, setCheckoutList] = callStore<CheckoutProduct[]>([]);
 /**
  * This store is for checkouts
  */
 
 export const [checkouts, setCheckouts] = callStore(checkout);
 
+// refactor me
 effect(() => {
   const button = refs.checkoutButton.current;
   if (checkouts.$$__value?.numberOfProds === 0) {
-    refs.checkout.current?.replaceChildren(
-      Nixix.create('h1', { className: 'text-lg border-0 pb-4 lg:text-xl' }, 'Your Shopping Basket is Empty')
-    );
-    button.classList.replace('checkout-button', 'gray-button')
-    button.disabled = false;
+    button?.classList?.replace('checkout-button', 'gray-button')
+    button ? button.disabled = true : null;
+    setCheckoutList(checkouts.$$__value.checkoutProducts)
   } else {
-    const checkoutProds = checkouts.$$__value?.checkoutProducts.map((checkoutProd) => {
-      return CheckoutProduct({...checkoutProd});
-    });
-    refs.checkout.current?.replaceChildren(...checkoutProds as JSX.Element[]);
-    button.classList.contains('gray-button') ? button.classList.replace('gray-button', 'checkout-button') : null;
+    button?.classList?.contains('gray-button') ? button?.classList?.replace('gray-button', 'checkout-button') : null;
+    button.disabled = false;
+    setCheckoutList(checkouts.$$__value.checkoutProducts)
   }
 });
 
@@ -56,22 +55,19 @@ const order: StoreOrderType = {
   orders: []
 };
  
+export const [ordersList, setOrdersList] = callStore<OrderType[]>([]);
 /**
- * This store is for checkouts
+ * This store is for orders
  */
 
 export const [orders, setOrders] = callStore(order);
 
+// refactor me
 effect(() => {
   if (orders.$$__value?.numberOfOrders === 0) {
-    refs.orders.current?.replaceChildren(
-      Nixix.create('h1', null, 'You have 0 orders')
-    );
+    setOrdersList(orders.$$__value.orders)
   } else {
-    const myOrders = orders.$$__value?.orders.map((order) => {
-      return Order({...order});
-    });
-    refs.orders.current?.replaceChildren(...myOrders);
+    setOrdersList(orders.$$__value.orders)
   }
 });
 

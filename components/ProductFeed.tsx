@@ -1,6 +1,6 @@
-import { asyncComponent } from "nixix"
+import { asyncComponent } from "nixix/hoc"
 import Product from "./Product";
-import { fakeApi } from "@utils/products";
+import { fakeApi } from "utils/products";
 
 const ProductFeed = asyncComponent(async () => {
   return (

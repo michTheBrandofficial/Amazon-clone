@@ -1,11 +1,18 @@
- import { Img } from 'nixix';
-import { Primeday } from '@assets/images';
-import refs from '@utils/refs';
-import { checkouts, config } from '@utils/stores';
+import { For, Img } from 'nixix/hoc';
+import { Primeday } from 'assets/images';
+import refs from 'utils/refs';
+import { checkoutList, checkouts, config } from 'utils/stores';
 import { callFlutterwave } from 'flutterwave-nixix-v3';
 import random from 'random-string-generator';
+import { CheckoutProduct } from 'components';
 
 export default function Checkout() {
+  const productParent = (
+    <div
+      className="flex flex-col p-5 space-y-10 bg-white font-Ember"
+      bind:ref={refs.checkout}
+    ></div>
+  );
   function makeOrders() {
     config.tx_ref = random(23);
     const fwConfig = callFlutterwave(config);
@@ -21,17 +28,34 @@ export default function Checkout() {
           style={{ width: '1020', height: '250' }}
         />
 
-        <div
-          className="flex flex-col p-5 space-y-10 bg-white font-Ember"
-          bind:ref={refs.checkout}
-        ></div>
+        {/* checkout products */}
+        <For
+          each={checkoutList}
+          parent={productParent}
+          fallback={
+            <h1 className="text-lg border-0 pb-4 lg:text-xl">
+              Your Shopping Basket is Empty
+            </h1>
+          }
+        >
+          {(checkoutProd: CheckoutProduct) => {
+            return <CheckoutProduct { ...checkoutProd } />;
+          }}
+        </For>
       </section>
       <section className="m-5 flex-1 basis-1/3 bg-white p-5 flex flex-col items-center font-Ember md:mb-5 md:mr-5 md:ml-0 md:mt-0 lg:min-w-[212px]">
         <p>
           Subtotal ({checkouts.numberOfProds} items){' '}
           <span className="font-EmberBd">${checkouts.totalPrice}</span>
         </p>
-        <button className='gray-button checkout-button' bind:ref={refs.checkoutButton} on:click={makeOrders} >Proceed to Checkout</button>
+        <button
+          className="gray-button"
+          bind:ref={refs.checkoutButton}
+          on:click={makeOrders}
+          disabled
+        >
+          Proceed to Checkout
+        </button>
       </section>
     </main>
   );

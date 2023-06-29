@@ -1,7 +1,8 @@
-import { collection, doc, getFirestore, setDoc, serverTimestamp, getDoc, getDocs, addDoc, updateDoc,  } from 'firebase/firestore';
+import { collection, doc, getFirestore, setDoc, serverTimestamp, getDoc, getDocs } from 'firebase/firestore';
 import init from './init';
 import { auth } from './auth';
-import { checkouts, config, setOrders, setCheckouts } from '@utils/stores';
+import { checkouts, config, setOrders, setCheckouts } from 'utils/stores';
+import { type StoreObject } from 'nixix/primitives';
 
 const db = getFirestore(init());
 export default db;
@@ -38,7 +39,7 @@ export async function setCheckoutsDb() {
   setDoc(userCheckoutsDoc, checkouts.$$__value);
 }
 
-export function getOrdersObj(checkout: Nixix.StoreObject<CheckoutType>) {
+export function getOrdersObj(checkout: StoreObject<CheckoutType>) {
   const order: OrderType = {};
   order.amount = checkout.$$__value.totalPrice;
   order.images = checkout.$$__value.checkoutProducts.map(checkoutProd => {

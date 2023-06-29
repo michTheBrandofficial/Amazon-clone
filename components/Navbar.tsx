@@ -1,6 +1,6 @@
-import { Img } from 'nixix';
+import { Img } from 'nixix/hoc';
 import { Slider } from './Banner';
-import { Location } from '@assets/icons';
+import { Location } from 'assets/icons';
 
 export default function Navbar() {
   return (

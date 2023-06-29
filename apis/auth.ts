@@ -1,8 +1,8 @@
-import Nixix from "nixix";
+import Nixix from "nixix/dom";
 import { app } from "./init";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
-import { config, setCheckouts, setUserName } from "@utils/stores";
-import refs from "@utils/refs";
+import { config, setCheckouts, setUserName } from "utils/stores";
+import refs from "utils/refs";
 import { getCheckouts, getOrders } from "./db";
 
 

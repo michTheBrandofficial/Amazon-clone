@@ -1,7 +1,7 @@
-import { PrimeTag } from '@assets/images';
-import { StarIcon } from '@assets/icons';
-import { Img } from 'nixix';
-import { checkouts, config, setCheckouts } from '@utils/stores';
+import { PrimeTag } from 'assets/images';
+import { StarIcon } from 'assets/icons';
+import { Img } from 'nixix/hoc';
+import { checkouts, config, setCheckouts } from 'utils/stores';
 import { validateUser } from 'apis/auth';
 import { setCheckoutsDb } from 'apis/db';
 

@@ -1,7 +1,7 @@
 import { Link } from 'nixix/router';
 import { signIn } from 'apis/auth';
-import { checkouts, username } from '@utils/stores';
-import { ArrowIcon, ShopIcon, UserIcon } from '@assets/icons';
+import { checkouts, username } from 'utils/stores';
+import { ArrowIcon, ShopIcon, UserIcon } from 'assets/icons';
 
 export default function Accounts() {
   return (

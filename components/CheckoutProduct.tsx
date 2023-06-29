@@ -1,6 +1,7 @@
-import { Img, callRef } from 'nixix';
-import { setCheckouts, checkouts, config } from '@utils/stores';
-import { StarIcon } from '@assets/icons';
+import { callRef } from 'nixix/primitives';
+import { Img } from 'nixix/hoc';
+import { setCheckouts, checkouts, config } from 'utils/stores';
+import { StarIcon } from 'assets/icons';
 import { setCheckoutsDb } from 'apis/db';
 
 export default function CheckoutProduct<T extends Product>(product: T) {
@@ -61,7 +62,6 @@ export default function CheckoutProduct<T extends Product>(product: T) {
         style={{ width: '170px', height: '200px' }}
         className="flex flex-col justify-center"
       >
-        <button className="button w-full py-3 text-sm mb-5">Add to Cart</button>
         <button
           className="button w-full py-3 text-sm"
           on:click={removeFromCart}
