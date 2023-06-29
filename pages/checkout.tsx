@@ -48,6 +48,8 @@ export default function Checkout() {
           Subtotal ({checkouts.numberOfProds} items){' '}
           <span className="font-EmberBd">${checkouts.totalPrice}</span>
         </p>
+        {/* This link tag has no use, it is just to keep the checkout-button utility class in the final build. */}
+        <a href="" className='checkout-button hidden'></a>
         <button
           className="gray-button"
           bind:ref={refs.checkoutButton}

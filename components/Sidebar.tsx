@@ -5,9 +5,8 @@ import { signIn } from 'apis/auth';
 import { Link } from 'nixix/router';
 
 export default function Sidebar() {
-  // it cleans up before the component loads.
+  // @todo click on a link and remove the sidebar.
   return (
-    // add hidden class to this comp
     <section
       bind:ref={refs.sidebar}
       className="w-full min-h-full fixed backdrop-opacity-10 backdrop-invert bg-black/80 transition duration-700 ease-in-out z-50 hidden"

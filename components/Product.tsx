@@ -5,6 +5,7 @@ import { checkouts, config, setCheckouts } from 'utils/stores';
 import { validateUser } from 'apis/auth';
 import { setCheckoutsDb } from 'apis/db';
 
+// @todo click and item is already in cart, then alert the user about that
 export default function Product(product: Prettify<Product>) {
   async function addToCart() {
     if ((await validateUser()) === false) return;
