@@ -1,19 +1,24 @@
 import { render } from 'nixix/dom';
 import './index.css';
-import { Suspense, asyncComponent } from 'nixix/hoc';
 import ScreenSpinner from 'components/ScreenSpinner';
+import { lazy, Suspense } from 'nixix/hoc';
 
-
-const Component = asyncComponent(async () => {
+const Component = lazy(async () => {
   const App = await import('./App');
-  return App.default()
-});
+  return App.default();
+})
+
+console.log(Component);
 
 render(
-  <Suspense fallback={<ScreenSpinner />} className='w-screen h-screen grid place-content-center' >
-    <Component />
-  </Suspense>, document.querySelector('div#root'));
-
+  <Suspense
+    fallback={<ScreenSpinner />}
+    className="w-screen h-screen grid place-content-center"
+  >
+    <Component  />
+  </Suspense>,
+  document.querySelector('div#root')
+);
 
 // (async function () {
 //   await Promise.resolve()

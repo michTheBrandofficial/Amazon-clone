@@ -4,10 +4,12 @@ import { username } from 'utils/stores';
 import { signIn } from 'apis/auth';
 import { Link } from 'nixix/router';
 
+
 export default function Sidebar() {
   // @todo click on a link and remove the sidebar.
+  
   return (
-    <section
+    <div
       bind:ref={refs.sidebar}
       className="w-full min-h-full fixed backdrop-opacity-10 backdrop-invert bg-black/80 transition duration-700 ease-in-out z-50 hidden"
     >
@@ -54,6 +56,6 @@ export default function Sidebar() {
             <X stroke='white' stroke:width={1} size={48} />
           </div>
       </div>
-    </section>
+    </div>
   );
 }

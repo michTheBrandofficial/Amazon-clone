@@ -24,6 +24,10 @@ export default defineConfig({
     minifySyntax: true,
     treeShaking: true,
   },
+  optimizeDeps: {
+    force: true,
+    include: ["./node_modules/nixix/primitives/index.ts", "./node_modules/nixix/hoc/index.ts"],
+  },
   build: {
     minify: true
   },

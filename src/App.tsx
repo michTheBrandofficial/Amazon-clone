@@ -7,17 +7,19 @@ import { Header } from 'components';
 import init from 'apis/init';
 import patch from 'patch';
 import { makeRoot } from 'utils/functions';
-import { Suspense, asyncComponent } from 'nixix/hoc';
+import { Suspense, lazy } from 'nixix/hoc';
 
 init();
 
+const Sidebar = lazy(async () => {
+  const module = await import('../components/index');
+  return module.Sidebar();
+});
+
 function App() {
-  const Sidebar = asyncComponent(async () => {
-    const module = await import('../components');
-    return module.Sidebar();
-  });
+  
   return (
-    <>
+    <div>
       <Suspense fallback={''}>
         <Sidebar />
       </Suspense>
@@ -28,7 +30,7 @@ function App() {
         <Route element={<Success />} path="/success" />
         <Route element={<Orders />} path="/orders" />
       </Routes>
-    </>
+    </div>
   );
 }
 
